@@ -77,7 +77,7 @@ void verifica(int numFilo){
 		sleep(1 + rand() % 2);
 
 		printf("Filosofo %d agarrou os garfos %d e %d.\n", numFilo+1, ESQUERDA+1, numFilo+1);
-      printf("Filosofo %d esta a comer.\n", numFilo+1);
+      		printf("Filosofo %d esta a comer.\n", numFilo+1);
 
 		sem_post(&semaf[numFilo]);
 	}
