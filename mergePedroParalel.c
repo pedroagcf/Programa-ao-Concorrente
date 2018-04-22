@@ -15,10 +15,10 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
     
     int i = 0, j = 0, k = 0;
     
-    int tam_b = (end+1) - mid_next;
-    int tam_a = (mid+1) - init;
-    int tam_merge = tam_a + tam_b;
-    int vet_merge[tam_merge];
+    int tam2 = (end+1) - mid_next;
+    int tam1 = (mid+1) - init;
+    int tamMax = tam1 + tam2;
+    int vetorAux[tamMax];
 
     i = init;
     j = mid_next;
@@ -27,12 +27,12 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
         
         if(vetor[i] <= vetor[j]){
             
-            vet_merge[k] = vetor[i];
+            vetorAux[k] = vetor[i];
             i++;
         
         }else{
             
-            vet_merge[k] = vetor[j];
+            vetorAux[k] = vetor[j];
             j++;
         }
 
@@ -43,7 +43,7 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
         
         for(i = j; i < end+1; i++){
            
-            vet_merge[k] = vetor[i];
+            vetorAux[k] = vetor[i];
             k++;
         }
     
@@ -51,16 +51,16 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
         
         for(j = i; j < mid_next; j++){
             
-            vet_merge[k] = vetor[j];
+            vetorAux[k] = vetor[j];
             k++;
         }
     }
     
     j = init;
     
-    for(i = 0; i < tam_merge; i++){
+    for(i = 0; i < tamMax; i++){
         
-        vetor[j] = vet_merge[i];
+        vetor[j] = vetorAux[i];
         j++;
     }
 }
