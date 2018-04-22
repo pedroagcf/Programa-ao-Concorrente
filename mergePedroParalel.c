@@ -23,7 +23,7 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
     i = init;
     j = mid_next;
 
-    while((i<mid_next) && (j<end+1)){
+    while((i < mid_next) && (j < end+1)){
         
         if(vetor[i] <= vetor[j]){
             
@@ -41,15 +41,15 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
 
     if(i == mid_next){
         
-        for(i=j;i<end+1;i++){
+        for(i = j; i < end+1; i++){
            
             vet_merge[k] = vetor[i];
             k++;
         }
     
-    }else if(j ==(end+1)){
+    }else if(j == (end+1)){
         
-        for(j=i;j<mid_next;j++){
+        for(j = i; j < mid_next; j++){
             
             vet_merge[k] = vetor[j];
             k++;
@@ -58,7 +58,7 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
     
     j = init;
     
-    for(i=0;i<tam_merge;i++){
+    for(i = 0; i < tam_merge; i++){
         
         vetor[j] = vet_merge[i];
         j++;
