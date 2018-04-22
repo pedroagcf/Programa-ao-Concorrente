@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -19,10 +11,10 @@ typedef struct{
 
 }mergInfo;
 
-//mergInfo merg;
-
 void merge(int *vetor, int init,int mid, int mid_next,int end){
+    
     int i = 0, j = 0, k = 0;
+    
     int tam_b = (end+1) - mid_next;
     int tam_a = (mid+1) - init;
     int tam_merge = tam_a + tam_b;
@@ -30,115 +22,48 @@ void merge(int *vetor, int init,int mid, int mid_next,int end){
 
     i = init;
     j = mid_next;
+
     while((i<mid_next) && (j<end+1)){
+        
         if(vetor[i] <= vetor[j]){
+            
             vet_merge[k] = vetor[i];
             i++;
+        
         }else{
+            
             vet_merge[k] = vetor[j];
             j++;
         }
+
         k++;
     }
 
     if(i == mid_next){
+        
         for(i=j;i<end+1;i++){
+           
             vet_merge[k] = vetor[i];
             k++;
         }
+    
     }else if(j ==(end+1)){
+        
         for(j=i;j<mid_next;j++){
+            
             vet_merge[k] = vetor[j];
             k++;
         }
     }
+    
     j = init;
+    
     for(i=0;i<tam_merge;i++){
+        
         vetor[j] = vet_merge[i];
         j++;
     }
 }
-
-//void merge(int vetor[], int inicio, int meio, int fim){
-
-//    int init = inicio;
-//    int init2 = meio;
-//    int aux = 0;
-//    int tam = fim - inicio + 1;
-//    int * vetAux;
-
-//    vetAux = (int*) malloc(tam*sizeof(int));
-
-//    while(init <= meio && init2 <= fim){
-
-//        if (vetor[init] < vetor[init2]){
-
-//            vetAux[aux] = vetor[init];
-//            init++;
-
-//        }else{
-
-//            vetAux[aux] = vetor[init2];
-//            init2++;
-
-//        }
-
-//        aux++;
-//    }
-
-//    while(init <= meio){
-
-//        vetAux[aux] = vetor[init];
-//        aux++;
-//        init++;
-//    }
-
-//    while(init2 <= fim){
-//        vetAux[aux] = vetor[init2];
-//        aux++;
-//        init2++;
-//    }
-
-//    for (aux = inicio; aux <= fim; aux++)
-//        vetor[aux] = vetAux[aux - inicio];
-//}
-
-//void mergeSort(int vet[], int inicio, int fim){
-
-//    int vetAux;
-
-//    if(merg.inicio < merg.fim){
-
-//        int meio = (merg.inicio + merg.fim)/2;
-
-//        pthread_t thread1, thread2;
-
-//        pthread_create( &thread1, NULL, mergeSort, (void *)NULL);
-//        pthread_create( &thread2, NULL, mergeSort, (void *)NULL);
-
-//        pthread_join(thread1, NULL);
-//        pthread_join(thread2, NULL);
-
-//        //mergeSort(merginfo.array, merginfo.init, meio);
-//        //mergeSort(merginfo.array, meio+1, merginfo.tama);
-//        merge(merginfo.array, merginfo.init, meio, merginfo.tama);
-//    }
-
-//}
-
-// void mergeSort(int vetor[], int inicio, int fim){
-
-// 	if(inicio < fim){
-
-// 		int meio = (inicio + fim)/2;
-
-// 		mergeSort(vetor, inicio, meio);
-// 		mergeSort(vetor, meio+1, fim);
-// 		merge(vetor, inicio, meio, fim);
-// 	}
-
-// }
-
 
 
 void * mergeSort(void * arg){
